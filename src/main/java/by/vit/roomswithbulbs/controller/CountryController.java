@@ -9,17 +9,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * This class controls country entities.
+ *
+ * @author Vitaly Lobatsevich
+ */
 @RestController
 @RequestMapping("/countries")
 public class CountryController {
 
+    /** Country dao. */
     private final CountryDao countryDao;
 
+    /**
+     * Constructor.
+     *
+     * @param countryDao - country dao.
+     */
     @Autowired
     public CountryController(final CountryDao countryDao) {
         this.countryDao = countryDao;
     }
 
+    /**
+     * Returns all countries.
+     *
+     * @return list of countries.
+     */
     @GetMapping
     public List<Country> getAll() {
         return countryDao.getAll();

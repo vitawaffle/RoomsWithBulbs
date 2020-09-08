@@ -8,6 +8,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -45,9 +46,14 @@ public class JsonFileCountryDao implements CountryDao {
     }
 
     @Override
-    public List<Country> getAll() {
+    public List<String> getAll() {
         try {
-            return Arrays.asList(mapper.readValue(jsonFile.getFile(), Country[].class));
+            final List<Country> countries = Arrays.asList(mapper.readValue(jsonFile.getFile(), Country[].class));
+            final List<String> countryNames = new ArrayList<>();
+            countries.forEach(country -> {
+                countryNames.add(country.getName());
+            });
+            return countryNames;
         } catch (IOException exception) {
             log.log(Level.SEVERE, "Error of reading \"countries.json\" file: ", exception);
             return Collections.emptyList();

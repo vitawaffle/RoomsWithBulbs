@@ -3,7 +3,7 @@ package by.vit.roomswithbulbs.entity;
 /**
  * Class Room.
  *
- * Represents room.
+ * Room entity.
  *
  * @author Vitaly Lobatsevich
  */
@@ -13,7 +13,7 @@ public class Room {
     private String name;
 
     /** Room country. */
-    private Country country;
+    private String country;
 
     /** Default constructor. */
     public Room() {
@@ -27,7 +27,7 @@ public class Room {
      * @param name - room name.
      * @param country - room country.
      */
-    public Room(final String name, final Country country) {
+    public Room(final String name, final String country) {
         this.name = name;
         this.country = country;
     }
@@ -55,7 +55,7 @@ public class Room {
      *
      * @param country - room country.
      */
-    public void setCountry(final Country country) {
+    public void setCountry(final String country) {
         this.country = country;
     }
 
@@ -64,7 +64,7 @@ public class Room {
      *
      * @return country.
      */
-    public Country getCountry() {
+    public String getCountry() {
         return country;
     }
 

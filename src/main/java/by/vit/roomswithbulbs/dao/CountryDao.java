@@ -1,7 +1,5 @@
 package by.vit.roomswithbulbs.dao;
 
-import by.vit.roomswithbulbs.entity.Country;
-
 import java.util.List;
 
 /**
@@ -16,6 +14,6 @@ public interface CountryDao {
     /**
      * @return list of all countries.
      */
-    List<Country> getAll();
+    List<String> getAll();
 
 }

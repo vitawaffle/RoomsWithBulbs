@@ -1,8 +1,6 @@
 package by.vit.roomswithbulbs.entity;
 
 /**
- * Class Room.
- *
  * Room entity.
  *
  * @author Vitaly Lobatsevich
@@ -25,6 +23,7 @@ public class Room extends Entity {
     /**
      * Parameterized constructor.
      *
+     * @param id - room id.
      * @param name - room name.
      * @param country - room country.
      */

@@ -13,8 +13,6 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Class JsonFileCountryDao.
- *
  * Provides access to countries in a json file.
  *
  * @author Vitaly Lobatsevich
@@ -31,8 +29,6 @@ public class JsonFileCountryDao implements CountryDao {
 
     /**
      * Constructor.
-     *
-     * Load countries from json file.
      *
      * @param mapper = object mapper.
      */

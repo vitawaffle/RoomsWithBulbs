@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/rooms")
 public class RoomController {
 
-    /** Room DAO. */
+    /** Room service. */
     private final RoomService roomService;
 
     /**
@@ -41,13 +41,13 @@ public class RoomController {
     }
 
     /**
-     * Creates new room.
+     * Saves room.
      *
-     * @param room - room to create.
+     * @param room - room to save.
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody final Room room) {
+    public void save(@RequestBody final Room room) {
         roomService.save(room);
     }
 

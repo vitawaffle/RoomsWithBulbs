@@ -1,7 +1,7 @@
 package by.vit.roomswithbulbs.entity;
 
 /**
- * Class Country.
+ * Country entity.
  *
  * @author Vitaly Lobatsevich
  */
@@ -19,6 +19,7 @@ public class Country extends Entity {
     /**
      * Parameterized constructor.
      *
+     * @param id - country id.
      * @param name - country name.
      */
     public Country(final String id, final String name) {

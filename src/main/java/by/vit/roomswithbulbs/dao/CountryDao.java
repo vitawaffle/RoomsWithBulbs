@@ -5,8 +5,6 @@ import by.vit.roomswithbulbs.entity.Country;
 import java.util.List;
 
 /**
- * Interface CountryDao.
- *
  * Provides access to the country storage.
  *
  * @author Vitaly Lobatsevich

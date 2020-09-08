@@ -5,8 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Interface RoomDao.
- *
  * Provides access to room storage.
  *
  * @author Vitaly Lobatsevich

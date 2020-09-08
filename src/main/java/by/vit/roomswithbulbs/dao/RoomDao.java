@@ -1,8 +1,8 @@
 package by.vit.roomswithbulbs.dao;
 
 import by.vit.roomswithbulbs.entity.Room;
-
-import java.util.List;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * Interface RoomDao.
@@ -11,23 +11,15 @@ import java.util.List;
  *
  * @author Vitaly Lobatsevich
  */
-public interface RoomDao {
+@Repository
+public interface RoomDao extends MongoRepository<Room, String> {
 
     /**
-     * @return list of all rooms.
-     */
-    List<Room> getAll();
-
-    /**
-     * Creates new room.
+     * Finds room by name.
      *
-     * @param room - room to create.
+     * @param name - room name.
+     * @return room or null.
      */
-    void create(Room room);
-
-    /**
-     * Deletes all rooms in storage.
-     */
-    void deleteAll();
+    Room findByName(String name);
 
 }

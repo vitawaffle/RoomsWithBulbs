@@ -7,7 +7,7 @@ function loadCountries() {
     countriesSelect.html("");
     $.getJSON("/countries", function (countries) {
         countries.forEach(country => {
-            countriesSelect.append(`<option value="${country}">${country}</option>`);
+            countriesSelect.append(`<option value="${country.name}">${country.name}</option>`);
         });
     });
 }
@@ -16,7 +16,7 @@ function loadRooms() {
     roomsList.html("");
     $.getJSON("/rooms", function (rooms) {
         rooms.forEach(room => {
-            roomsList.append(`<li><a href="/rooms/${room.name}">${room.name} (${room.country})</a></li>`);
+            roomsList.append(`<li><a href="/rooms/${room.name}">${room.name} (${room.country.name})</a></li>`);
         });
     });
 }
@@ -27,7 +27,9 @@ function createRoom() {
         url: "/rooms",
         data: JSON.stringify({
             name: nameInput.val(),
-            country: countriesSelect.val()
+            country: {
+                name: countriesSelect.val()
+            }
         }),
         contentType: "application/json; charset=utf-8",
         dataType: "json",

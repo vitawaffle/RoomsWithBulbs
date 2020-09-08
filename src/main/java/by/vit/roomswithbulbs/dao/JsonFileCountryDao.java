@@ -8,12 +8,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Class JsonFileCountryDao.
@@ -25,39 +22,31 @@ import java.util.logging.Logger;
 @Repository
 public class JsonFileCountryDao implements CountryDao {
 
-    /** Logger. */
-    private static final Logger log = Logger.getLogger(JsonFileCountryDao.class.getName());
-
-    /** Object mapper. */
-    private final ObjectMapper mapper;
-
     /** Json file with countries. */
     @Value("classpath:countries.json")
     private Resource jsonFile;
 
+    /** Object mapper. */
+    private final ObjectMapper mapper;
+
     /**
      * Constructor.
+     *
+     * Load countries from json file.
      *
      * @param mapper = object mapper.
      */
     @Autowired
-    private JsonFileCountryDao(final ObjectMapper mapper) {
+    public JsonFileCountryDao(final ObjectMapper mapper) {
         this.mapper = mapper;
     }
 
     @Override
-    public List<String> getAll() {
+    public List<Country> getAll() {
         try {
-            final List<Country> countries = Arrays.asList(mapper.readValue(jsonFile.getFile(), Country[].class));
-            final List<String> countryNames = new ArrayList<>();
-            countries.forEach(country -> {
-                countryNames.add(country.getName());
-            });
-            return countryNames;
-        } catch (IOException exception) {
-            log.log(Level.SEVERE, "Error of reading \"countries.json\" file: ", exception);
-            return Collections.emptyList();
-        }
+            return Arrays.asList(mapper.readValue(jsonFile.getFile(), Country[].class));
+        } catch (IOException ignore) {}
+        return Collections.emptyList();
     }
 
 }

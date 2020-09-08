@@ -7,16 +7,17 @@ package by.vit.roomswithbulbs.entity;
  *
  * @author Vitaly Lobatsevich
  */
-public class Room {
+public class Room extends Entity {
 
     /** Room name. */
     private String name;
 
     /** Room country. */
-    private String country;
+    private Country country;
 
     /** Default constructor. */
     public Room() {
+        super();
         name = null;
         country = null;
     }
@@ -27,7 +28,8 @@ public class Room {
      * @param name - room name.
      * @param country - room country.
      */
-    public Room(final String name, final String country) {
+    public Room(final String id, final String name, final Country country) {
+        super(id);
         this.name = name;
         this.country = country;
     }
@@ -55,7 +57,7 @@ public class Room {
      *
      * @param country - room country.
      */
-    public void setCountry(final String country) {
+    public void setCountry(final Country country) {
         this.country = country;
     }
 
@@ -64,7 +66,7 @@ public class Room {
      *
      * @return country.
      */
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 

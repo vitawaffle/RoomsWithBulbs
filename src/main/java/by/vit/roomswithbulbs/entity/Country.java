@@ -3,17 +3,16 @@ package by.vit.roomswithbulbs.entity;
 /**
  * Class Country.
  *
- * Contains country name.
- *
  * @author Vitaly Lobatsevich
  */
-public class Country {
+public class Country extends Entity {
 
     /** Country name. */
     private String name;
 
     /** Default constructor. */
     public Country() {
+        super();
         name = null;
     }
 
@@ -22,12 +21,13 @@ public class Country {
      *
      * @param name - country name.
      */
-    public Country(final String name) {
+    public Country(final String id, final String name) {
+        super(id);
         this.name = name;
     }
 
     /**
-     * Name setter.
+     * name setter.
      *
      * @param name - country name.
      */
@@ -36,7 +36,7 @@ public class Country {
     }
 
     /**
-     * Name getter.
+     * name getter.
      *
      * @return name.
      */

@@ -1,7 +1,7 @@
 package by.vit.roomswithbulbs.controller;
 
-import by.vit.roomswithbulbs.dao.RoomDao;
 import by.vit.roomswithbulbs.entity.Room;
+import by.vit.roomswithbulbs.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,16 +18,16 @@ import java.util.List;
 public class RoomController {
 
     /** Room DAO. */
-    private final RoomDao roomDao;
+    private final RoomService roomService;
 
     /**
      * Constructor.
      *
-     * @param roomDao - room DAO.
+     * @param roomService - room service.
      */
     @Autowired
-    public RoomController(final RoomDao roomDao) {
-        this.roomDao = roomDao;
+    public RoomController(final RoomService roomService) {
+        this.roomService = roomService;
     }
 
     /**
@@ -37,7 +37,7 @@ public class RoomController {
      */
     @GetMapping
     public List<Room> getAll() {
-        return roomDao.getAll();
+        return roomService.getAll();
     }
 
     /**
@@ -48,7 +48,7 @@ public class RoomController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody final Room room) {
-        roomDao.create(room);
+        roomService.save(room);
     }
 
 }

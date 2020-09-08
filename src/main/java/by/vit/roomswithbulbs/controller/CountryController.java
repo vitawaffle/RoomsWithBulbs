@@ -37,7 +37,7 @@ public class CountryController {
      * @return list of countries.
      */
     @GetMapping
-    public List<String> getAll() {
+    public List<Country> getAll() {
         return countryDao.getAll();
     }
 

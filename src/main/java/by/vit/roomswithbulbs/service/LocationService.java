@@ -10,8 +10,9 @@ public interface LocationService {
     /**
      * Returns country by ip.
      *
+     * @param ip - client ip.
      * @return country name for this ip.
      */
-    String getCountryName();
+    String getCountryNameByIp(String ip);
 
 }

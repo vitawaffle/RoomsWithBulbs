@@ -27,9 +27,9 @@ public class IpStackClientLocation implements LocationService {
     }
 
     @Override
-    public String getCountryName() {
+    public String getCountryNameByIp(String ip) {
         final Country country = restTemplate.getForObject(
-                "http://api.ipstack.com/check?access_key=" + accessKey,
+                "http://api.ipstack.com/" + ip + "?access_key=" + accessKey,
                     Country.class
                 );
         return country != null ? country.country_name : null;

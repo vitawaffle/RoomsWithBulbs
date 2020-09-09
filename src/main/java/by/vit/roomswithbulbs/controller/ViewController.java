@@ -31,6 +31,7 @@ public class ViewController {
 
     @GetMapping("/room")
     public String room(@RequestParam final String name, final HttpServletRequest request) {
+        log.log(Level.INFO, request.getRemoteAddr());
         return "room.html";
     }
 

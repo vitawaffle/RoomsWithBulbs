@@ -11,7 +11,7 @@
     <groupId>by.vit</groupId>
     <artifactId>roomswithbulbs </artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>RoomsWithBulbs </name>
+    <name>RoomsWithBulbs</name>
     <description>Test exercise</description>
 
     <properties>

@@ -1,7 +1,5 @@
 package by.vit.roomswithbulbs.service;
 
-import by.vit.roomswithbulbs.entity.Country;
-
 /**
  * Used for determine client location by ip.
  *
@@ -12,9 +10,8 @@ public interface LocationService {
     /**
      * Returns country by ip.
      *
-     * @param ip - client ip.
-     * @return country entity for this ip.
+     * @return country name for this ip.
      */
-    Country getCountryByIp(String ip);
+    String getCountryName();
 
 }

@@ -14,6 +14,6 @@ public interface CountryDao {
     /**
      * @return list of all countries.
      */
-    List<Country> getAll();
+    List<Country> findAll();
 
 }

@@ -27,6 +27,9 @@ public class JsonFileCountryDao implements CountryDao {
     /** Object mapper. */
     private final ObjectMapper mapper;
 
+    /** List of all countries. */
+    private List<Country> countries;
+
     /**
      * Constructor.
      *
@@ -38,11 +41,15 @@ public class JsonFileCountryDao implements CountryDao {
     }
 
     @Override
-    public List<Country> getAll() {
-        try {
-            return Arrays.asList(mapper.readValue(jsonFile.getFile(), Country[].class));
-        } catch (IOException ignore) {}
-        return Collections.emptyList();
+    public List<Country> findAll() {
+        if (countries == null) {
+            try {
+                countries = Arrays.asList(mapper.readValue(jsonFile.getFile(), Country[].class));
+            } catch (IOException ignore) {
+                countries = Collections.emptyList();
+            }
+        }
+        return countries;
     }
 
 }

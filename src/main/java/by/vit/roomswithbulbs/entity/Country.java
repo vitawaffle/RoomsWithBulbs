@@ -5,25 +5,22 @@ package by.vit.roomswithbulbs.entity;
  *
  * @author Vitaly Lobatsevich
  */
-public class Country extends Entity {
+public class Country {
 
     /** Country name. */
     private String name;
 
     /** Default constructor. */
     public Country() {
-        super();
         name = null;
     }
 
     /**
      * Parameterized constructor.
      *
-     * @param id - country id.
      * @param name - country name.
      */
-    public Country(final String id, final String name) {
-        super(id);
+    public Country(final String name) {
         this.name = name;
     }
 

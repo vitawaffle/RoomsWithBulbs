@@ -14,8 +14,8 @@ public class CountryDaoTests {
     private CountryDao countryDao;
 
     @Test
-    public void getAll_ShouldReturnNotEmpty() {
-        assertFalse(countryDao.getAll().isEmpty());
+    public void findAll_ShouldReturnNotEmpty() {
+        assertFalse(countryDao.findAll().isEmpty());
     }
 
 }

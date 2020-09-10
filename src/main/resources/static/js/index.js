@@ -16,7 +16,7 @@ function loadRooms() {
     roomsList.html("");
     $.getJSON("/rooms", function (rooms) {
         rooms.forEach(room => {
-            roomsList.append(`<li>${room.name} (${room.country.name})</li>`);
+            roomsList.append(`<li><a href="/room?id=${room.id}">${room.name} (${room.country.name})</a></li>`);
         });
     });
 }

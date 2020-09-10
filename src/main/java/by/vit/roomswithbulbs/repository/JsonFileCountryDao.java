@@ -1,55 +1,19 @@
 package by.vit.roomswithbulbs.repository;
 
 import by.vit.roomswithbulbs.entity.Country;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Repository;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
- * Provides access to countries in a json file.
+ * Provides access to the country storage in json file.
  *
  * @author Vitaly Lobatsevich
  */
-@Repository
-public class JsonFileCountryDao implements CountryDao {
-
-    /** Json file with countries. */
-    @Value("classpath:countries.json")
-    private Resource jsonFile;
-
-    /** Object mapper. */
-    private final ObjectMapper mapper;
-
-    /** List of all countries. */
-    private List<Country> countries;
+public interface JsonFileCountryDao {
 
     /**
-     * Constructor.
-     *
-     * @param mapper - object mapper.
+     * @return list of all countries.
      */
-    @Autowired
-    public JsonFileCountryDao(final ObjectMapper mapper) {
-        this.mapper = mapper;
-    }
-
-    @Override
-    public List<Country> findAll() {
-        if (countries == null) {
-            try {
-                countries = Arrays.asList(mapper.readValue(jsonFile.getFile(), Country[].class));
-            } catch (IOException ignore) {
-                countries = Collections.emptyList();
-            }
-        }
-        return countries;
-    }
+    List<Country> findAll();
 
 }

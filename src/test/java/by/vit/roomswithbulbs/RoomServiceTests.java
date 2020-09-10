@@ -1,6 +1,6 @@
 package by.vit.roomswithbulbs;
 
-import by.vit.roomswithbulbs.repository.CountryDao;
+import by.vit.roomswithbulbs.repository.JsonFileCountryDao;
 import by.vit.roomswithbulbs.repository.RoomRepository;
 import by.vit.roomswithbulbs.entity.Room;
 import by.vit.roomswithbulbs.service.RoomService;
@@ -22,7 +22,7 @@ public class RoomServiceTests {
     private RoomRepository roomRepository;
 
     @Autowired
-    private CountryDao countryDao;
+    private JsonFileCountryDao countryDao;
 
     private String id;
 

@@ -1,6 +1,6 @@
 package by.vit.roomswithbulbs;
 
-import by.vit.roomswithbulbs.repository.CountryDao;
+import by.vit.roomswithbulbs.repository.JsonFileCountryDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,14 +8,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class CountryDaoTests {
+public class JsonFileCountryDaoTests {
 
     @Autowired
-    private CountryDao countryDao;
+    private JsonFileCountryDao jsonFileCountryDao;
 
     @Test
     public void findAll_ShouldReturnNotEmpty() {
-        assertFalse(countryDao.findAll().isEmpty());
+        assertFalse(jsonFileCountryDao.findAll().isEmpty());
     }
 
 }

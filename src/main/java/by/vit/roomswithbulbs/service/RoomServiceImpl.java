@@ -34,6 +34,16 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    public Room switchLightAndGetById(final String id) {
+        final Room room = roomRepository.findById(id).orElse(null);
+        if (room == null) {
+            return null;
+        }
+        room.setLight(!room.getLight());
+        return roomRepository.save(room);
+    }
+
+    @Override
     public Room getById(final String id) {
         return roomRepository.findById(id).orElse(null);
     }

@@ -2,22 +2,25 @@ const nameInput = $("#name");
 const countriesSelect = $("#countries");
 const createButton = $("#create");
 const roomsList = $("#rooms");
+const refreshButton = $("#refresh");
 
 function loadCountries() {
-    countriesSelect.html("");
     $.getJSON("/countries", function (countries) {
+        let html = "";
         countries.forEach(country => {
-            countriesSelect.append(`<option value="${country.id}">${country.name}</option>`);
+            html += `<option value="${country.id}">${country.name}</option>`;
         });
+        countriesSelect.html(html);
     });
 }
 
 function loadRooms() {
-    roomsList.html("");
     $.getJSON("/rooms", function (rooms) {
+        let html = "";
         rooms.forEach(room => {
-            roomsList.append(`<li><a href="/room?id=${room.id}">${room.name} (${room.country.name})</a></li>`);
+            html += `<li><a href="/room?id=${room.id}">${room.name} (${room.country.name})</a></li>`;
         });
+        roomsList.html(html);
     });
 }
 
@@ -48,6 +51,10 @@ function createRoom() {
 
 createButton.click(function () {
     createRoom();
+});
+
+refreshButton.click(function () {
+    loadRooms();
 });
 
 window.onload = function () {

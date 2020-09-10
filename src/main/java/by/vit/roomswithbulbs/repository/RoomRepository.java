@@ -1,4 +1,4 @@
-package by.vit.roomswithbulbs.dao;
+package by.vit.roomswithbulbs.repository;
 
 import by.vit.roomswithbulbs.entity.Room;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * @author Vitaly Lobatsevich
  */
 @Repository
-public interface RoomDao extends MongoRepository<Room, String> {
+public interface RoomRepository extends MongoRepository<Room, String> {
 
     /**
      * Finds room by name.

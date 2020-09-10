@@ -1,9 +1,8 @@
 package by.vit.roomswithbulbs;
 
-import by.vit.roomswithbulbs.repository.CountryDao;
-import by.vit.roomswithbulbs.repository.RoomRepository;
-import by.vit.roomswithbulbs.entity.Room;
-import by.vit.roomswithbulbs.service.RoomService;
+import by.vit.roomswithbulbs.entity.Country;
+import by.vit.roomswithbulbs.repository.CountryRepository;
+import by.vit.roomswithbulbs.service.CountryService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,63 +12,59 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class RoomServiceTests {
+public class CountryServiceTests {
 
     @Autowired
-    private RoomService roomService;
+    private CountryService countryService;
 
     @Autowired
-    private RoomRepository roomRepository;
-
-    @Autowired
-    private CountryDao countryDao;
+    CountryRepository countryRepository;
 
     private String id;
 
     @BeforeEach
     public void init() {
-        final Room room = new Room(null, "Room1", countryDao.findAll().get(0));
-        id = roomRepository.save(room).getId();
+        id = countryRepository.save(new Country(null, "Belarus")).getId();
     }
 
     @AfterEach
     public void clean() {
-        roomRepository.deleteAll();
+        countryRepository.deleteAll();
     }
 
     @Test
     public void getAll_ShouldReturnNotEmpty() {
-        assertFalse(roomService.getAll().isEmpty());
+        assertFalse(countryService.getAll().isEmpty());
     }
 
     @Test
     public void getById_ExistingId_ShouldReturnNotNull() {
-        assertNotNull(roomService.getById(id));
+        assertNotNull(countryService.getById(id));
     }
 
     @Test
     public void getById_NotExistingId_ShouldReturnNull() {
-        assertNull(roomService.getById(""));
+        assertNull(countryService.getById(""));
     }
 
     @Test
     public void save_ShouldDoesNotThrow() {
         assertDoesNotThrow(() -> {
-            roomService.save(new Room(null, "Room2", countryDao.findAll().get(0)));
+            countryService.save(new Country(null, "Russia"));
         });
     }
 
     @Test
     public void deleteById_ExistingId_ShouldDoesNotThrow() {
         assertDoesNotThrow(() -> {
-            roomService.deleteById(id);
+            countryService.deleteById(id);
         });
     }
 
     @Test
     public void deleteById_NotExistingId_ShouldDoesNotThrow() {
         assertDoesNotThrow(() -> {
-            roomService.deleteById("");
+            countryService.deleteById("");
         });
     }
 

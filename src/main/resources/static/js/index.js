@@ -7,7 +7,7 @@ function loadCountries() {
     countriesSelect.html("");
     $.getJSON("/countries", function (countries) {
         countries.forEach(country => {
-            countriesSelect.append(`<option value="${country.name}">${country.name}</option>`);
+            countriesSelect.append(`<option value="${country.id}">${country.name}</option>`);
         });
     });
 }
@@ -16,35 +16,33 @@ function loadRooms() {
     roomsList.html("");
     $.getJSON("/rooms", function (rooms) {
         rooms.forEach(room => {
-            roomsList.append(`<li><a href="/room?id=${room.id}">${room.name} (${room.country.name})</a></li>`);
+            roomsList.append(`<li>${room.name} (${room.country.name})</li>`);
         });
     });
 }
 
 function createRoom() {
-    $.ajax({
-        type: "POST",
-        url: "/rooms",
-        data: JSON.stringify({
-            name: nameInput.val(),
-            country: {
-                name: countriesSelect.val()
+    $.getJSON(`/countries/${countriesSelect.val()}`, function (country) {
+        $.ajax({
+            type: "POST",
+            url: "/rooms",
+            data: JSON.stringify({
+                name: nameInput.val(),
+                country: country
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            complete: function (jqXHR) {
+                switch (jqXHR.status) {
+                    case 201:
+                        alert("Created!");
+                        loadRooms();
+                        break;
+                    default:
+                        alert("Error of creation!");
+                }
             }
-        }),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        complete: function (jqXHR) {
-            switch (jqXHR.status) {
-                case 201:
-                    alert("Created!");
-                    loadRooms();
-                    break;
-                case 400:
-                    alert("Error!");
-                    break;
-                default:
-            }
-        }
+        });
     });
 }
 

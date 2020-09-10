@@ -30,10 +30,11 @@ public class IpStackClientLocation implements LocationService {
     public String getCountryNameByIp(final String ip) {
         String urlFormat = "http://api.ipstack.com/%s?access_key=%s";
         String url;
-        if (ip.equals("127.0.0.1"))
+        if (ip.equals("127.0.0.1")) {
             url = String.format(urlFormat, "check", accessKey);
-        else
+        } else {
             url = String.format(urlFormat, ip, accessKey);
+        }
         final Country country = restTemplate.getForObject(url, Country.class);
         return country != null ? country.country_name : null;
     }

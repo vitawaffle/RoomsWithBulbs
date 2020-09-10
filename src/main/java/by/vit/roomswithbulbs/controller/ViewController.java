@@ -21,14 +21,4 @@ public class ViewController {
         return "index.html";
     }
 
-    /**
-     * Room view.
-     *
-     * @return view name.
-     */
-    @GetMapping("/room")
-    public String room() {
-        return "room.html";
-    }
-
 }

@@ -1,4 +1,4 @@
-package by.vit.roomswithbulbs.dao;
+package by.vit.roomswithbulbs.repository;
 
 import by.vit.roomswithbulbs.entity.Country;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,7 +33,7 @@ public class JsonFileCountryDao implements CountryDao {
     /**
      * Constructor.
      *
-     * @param mapper = object mapper.
+     * @param mapper - object mapper.
      */
     @Autowired
     public JsonFileCountryDao(final ObjectMapper mapper) {

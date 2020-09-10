@@ -1,7 +1,7 @@
 package by.vit.roomswithbulbs.service;
 
 /**
- * Parent interface for all application services.
+ * Parent interface for all application collection services.
  *
  * @param <T> - entity type.
  * @param <ID> - entity id type.

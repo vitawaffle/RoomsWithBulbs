@@ -13,7 +13,9 @@ public class Room extends Entity {
     /** Room country. */
     private Country country;
 
-    /** Default constructor. */
+    /**
+     * Default constructor.
+     */
     public Room() {
         super();
         name = null;

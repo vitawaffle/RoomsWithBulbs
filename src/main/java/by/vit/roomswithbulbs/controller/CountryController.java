@@ -1,16 +1,17 @@
 package by.vit.roomswithbulbs.controller;
 
-import by.vit.roomswithbulbs.dao.CountryDao;
 import by.vit.roomswithbulbs.entity.Country;
+import by.vit.roomswithbulbs.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 /**
- * This class controls country entities.
+ * Country controller.
  *
  * @author Vitaly Lobatsevich
  */
@@ -18,17 +19,17 @@ import java.util.List;
 @RequestMapping("/countries")
 public class CountryController {
 
-    /** Country dao. */
-    private final CountryDao countryDao;
+    /** Country service. */
+    private final CountryService countryService;
 
     /**
      * Constructor.
      *
-     * @param countryDao - country dao.
+     * @param countryService - country service.
      */
     @Autowired
-    public CountryController(final CountryDao countryDao) {
-        this.countryDao = countryDao;
+    public CountryController(final CountryService countryService) {
+        this.countryService = countryService;
     }
 
     /**
@@ -38,7 +39,18 @@ public class CountryController {
      */
     @GetMapping
     public List<Country> getAll() {
-        return countryDao.findAll();
+        return countryService.getAll();
+    }
+
+    /**
+     * Returns country by id.
+     *
+     * @param id - country id.
+     * @return country entity or null.
+     */
+    @GetMapping("/{id}")
+    public Country getById(@PathVariable final String id) {
+        return countryService.getById(id);
     }
 
 }

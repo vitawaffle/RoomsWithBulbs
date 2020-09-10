@@ -1,4 +1,4 @@
-package by.vit.roomswithbulbs.dao;
+package by.vit.roomswithbulbs.repository;
 
 import by.vit.roomswithbulbs.entity.Country;
 

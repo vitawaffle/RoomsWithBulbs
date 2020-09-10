@@ -13,7 +13,9 @@ public class Entity {
     @Id
     protected String id;
 
-    /** Default constructor. */
+    /**
+     * Default constructor.
+     */
     public Entity() {
         id = null;
     }
@@ -28,7 +30,7 @@ public class Entity {
     }
 
     /**
-     * id setter.
+     * Id setter.
      *
      * @param id - entity id.
      */
@@ -37,7 +39,7 @@ public class Entity {
     }
 
     /**
-     * id getter.
+     * Id getter.
      *
      * @return id.
      */

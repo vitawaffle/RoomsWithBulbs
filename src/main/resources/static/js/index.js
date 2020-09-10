@@ -31,7 +31,8 @@ function createRoom() {
             url: "/rooms",
             data: JSON.stringify({
                 name: nameInput.val(),
-                country: country
+                country: country,
+                light: false
             }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",

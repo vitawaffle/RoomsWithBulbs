@@ -28,7 +28,7 @@ public class RoomServiceTests {
 
     @BeforeEach
     public void init() {
-        final Room room = new Room(null, "Room1", countryDao.findAll().get(0));
+        final Room room = new Room(null, "Room1", countryDao.findAll().get(0), false);
         id = roomRepository.save(room).getId();
     }
 
@@ -55,7 +55,7 @@ public class RoomServiceTests {
     @Test
     public void save_ShouldDoesNotThrow() {
         assertDoesNotThrow(() -> {
-            roomService.save(new Room(null, "Room2", countryDao.findAll().get(0)));
+            roomService.save(new Room(null, "Room2", countryDao.findAll().get(0), false));
         });
     }
 

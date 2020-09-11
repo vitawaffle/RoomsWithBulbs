@@ -24,7 +24,7 @@ public class CountryServiceTests {
 
     @BeforeEach
     public void init() {
-        id = countryRepository.save(new Country(null, "Belarus")).getId();
+        id = countryRepository.save(new Country(null, "Belarus", "BE")).getId();
     }
 
     @AfterEach
@@ -50,7 +50,7 @@ public class CountryServiceTests {
     @Test
     public void save_ShouldDoesNotThrow() {
         assertDoesNotThrow(() -> {
-            countryService.save(new Country(null, "Russia"));
+            countryService.save(new Country(null, "Russia", "RU"));
         });
     }
 

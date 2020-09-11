@@ -34,11 +34,10 @@ public class LightController {
      *
      * @param id - room id.
      * @return light switched room.
-     * @throws Exception
      */
     @MessageMapping("/switchLight/{id}")
     @SendTo("/topic/room/{id}")
-    public Room switchLight(@DestinationVariable final String id) throws Exception {
+    public Room switchLight(@DestinationVariable final String id) {
         return roomService.switchLightAndGetById(id);
     }
 

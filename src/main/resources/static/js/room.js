@@ -19,7 +19,9 @@ function loadRoom() {
 function connect() {
     let socket = new SockJS("/rooms-with-bulbs");
     stompClient = Stomp.over(socket);
-    stompClient.connect({}, function (frame) {
+    stompClient.connect({
+        "test_header": "test 666"
+    }, function (frame) {
 
         /* Start of debug section */
         console.log(`Connected: ${frame}`);
@@ -32,7 +34,7 @@ function connect() {
             /* End of debug section */
 
             updateRoom(JSON.parse(data.body));
-        });
+        }, function () {});
     });
 }
 

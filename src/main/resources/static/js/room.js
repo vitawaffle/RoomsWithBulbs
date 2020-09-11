@@ -31,7 +31,6 @@ function connect() {
             console.log(JSON.parse(data.body));
             /* End of debug section */
 
-            switchLightButton.show();
             updateRoom(JSON.parse(data.body));
         });
     });

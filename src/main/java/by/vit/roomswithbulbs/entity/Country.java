@@ -10,12 +10,16 @@ public class Country extends Entity {
     /** Country name. */
     private String name;
 
+    /** Alpha2 country code. */
+    private String alpha2;
+
     /**
      * Default constructor.
      */
     public Country() {
         id = null;
         name = null;
+        alpha2 = null;
     }
 
     /**
@@ -23,10 +27,12 @@ public class Country extends Entity {
      *
      * @param id - country id.
      * @param name - country name.
+     * @param alpha2 - alpha2 country code.
      */
-    public Country(final String id, final String name) {
+    public Country(final String id, final String name, final String alpha2) {
         this.id = id;
         this.name = name;
+        this.alpha2 = alpha2;
     }
 
     /**
@@ -45,6 +51,24 @@ public class Country extends Entity {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Alpha2 setter.
+     *
+     * @param alpha2 - alpha2 country code.
+     */
+    public void setAlpha2(final String alpha2) {
+        this.alpha2 = alpha2;
+    }
+
+    /**
+     * Alpha2 getter.
+     *
+     * @return alpha2 country code.
+     */
+    public String getAlpha2() {
+        return alpha2;
     }
 
 }

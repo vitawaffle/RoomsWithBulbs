@@ -20,4 +20,12 @@ public interface CountryRepository extends MongoRepository<Country, String> {
      */
     Country findByName(String name);
 
+    /**
+     * Finds country by alpha2 code.
+     *
+     * @param alpha2 - alpha2 country code.
+     * @return country entity or null.
+     */
+    Country findByAlpha2(String alpha2);
+
 }

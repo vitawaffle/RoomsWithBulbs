@@ -15,4 +15,12 @@ public interface LocationService {
      */
     String getCountryNameByIp(String ip);
 
+    /**
+     * Returns alpha2 country code by client ip.
+     *
+     * @param ip - client ip.
+     * @return alpha2 country code.
+     */
+    String getCountryCodeByIp(String ip);
+
 }

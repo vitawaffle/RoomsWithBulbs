@@ -8,7 +8,7 @@ function loadCountries() {
     $.getJSON("/countries", function (countries) {
         let html = "";
         countries.forEach(country => {
-            html += `<option value="${country.id}">${country.name}</option>`;
+            html += `<option value="${country.id}">${country.name} (${country.alpha2})</option>`;
         });
         countriesSelect.html(html);
     });

@@ -73,4 +73,33 @@ public class RoomServiceTests {
         });
     }
 
+    @Test
+    public void switchLightAndGetById_ExistingId_ShouldDoesNotThrow() {
+        assertDoesNotThrow(() -> {
+            roomService.switchLightAndGetById(id);
+        });
+    }
+
+    @Test
+    public void switchLightAndGetById_NotExistingId_ShouldDoesNotThrow() {
+        assertDoesNotThrow(() -> {
+            roomService.switchLightAndGetById("");
+        });
+    }
+
+    @Test
+    public void switchLightAndGetById_ExistingId_ShouldReturnNotNull() {
+        assertNotNull(roomService.switchLightAndGetById(id));
+    }
+
+    @Test
+    public void switchLightAndGetById_NotExistingId_ShouldReturnNull() {
+        assertNull(roomService.switchLightAndGetById(""));
+    }
+
+    @Test
+    public void switchLightAndGetById_ExistingId_ShouldSetLightToTrue() {
+        assertTrue(roomService.switchLightAndGetById(id).getLight());
+    }
+
 }

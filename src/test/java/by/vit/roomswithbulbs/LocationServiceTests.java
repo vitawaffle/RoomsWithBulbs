@@ -18,4 +18,9 @@ public class LocationServiceTests {
         assertEquals("United States", locationService.getCountryNameByIp("134.201.250.155"));
     }
 
+    @Test
+    public void getCountryCodeByIp_ShouldReturnUS() {
+        assertEquals("US", locationService.getCountryCodeByIp("134.201.250.155"));
+    }
+
 }

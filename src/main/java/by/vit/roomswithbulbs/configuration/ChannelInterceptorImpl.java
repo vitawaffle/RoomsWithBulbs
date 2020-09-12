@@ -55,7 +55,7 @@ public class ChannelInterceptorImpl implements ChannelInterceptor {
             }
             final String[] destinationParts = destination.split("/");
             final String id = destinationParts[destinationParts.length - 1];
-            if (!accessService.checkByRoomId(id, ip) || ip.equals("176.60.168.170")) {
+            if (!accessService.checkByRoomId(id, ip)) {
                 throw new AccessDeniedException();
             }
         }

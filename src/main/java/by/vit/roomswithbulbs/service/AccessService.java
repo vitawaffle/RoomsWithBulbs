@@ -1,7 +1,5 @@
 package by.vit.roomswithbulbs.service;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * This service checks client access.
  *

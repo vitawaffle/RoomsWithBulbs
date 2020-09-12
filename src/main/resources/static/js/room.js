@@ -19,9 +19,7 @@ function loadRoom() {
 function connect() {
     let socket = new SockJS("/rooms-with-bulbs");
     stompClient = Stomp.over(socket);
-    stompClient.connect({
-        "test_header": "test 666"
-    }, function (frame) {
+    stompClient.connect({}, function (frame) {
 
         /* Start of debug section */
         console.log(`Connected: ${frame}`);

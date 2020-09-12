@@ -1,24 +1,20 @@
 package by.vit.roomswithbulbs.configuration;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
-import org.springframework.messaging.support.ChannelInterceptor;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.HandshakeInterceptor;
 
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
- * Application handshake interceptor.
+ * Handshake interceptor implementation.
  *
  * @author Vitaly Lobatsevich
  */
-public class AppInterceptor implements HandshakeInterceptor {
-
-    /** Logger, */
-    private static final Logger log = Logger.getLogger(AppInterceptor.class.getName());
+@Configuration
+public class HandshakeInterceptorImpl implements HandshakeInterceptor {
 
     @Override
     public boolean beforeHandshake(
@@ -27,7 +23,7 @@ public class AppInterceptor implements HandshakeInterceptor {
             final WebSocketHandler wsHandler,
             final Map<String,Object> attributes
     ) throws Exception {
-        log.log(Level.INFO, "Client IP: " + request.getRemoteAddress().getAddress().getHostAddress());
+        attributes.put("ip", request.getRemoteAddress().getAddress().getHostAddress());
         return true;
     }
 

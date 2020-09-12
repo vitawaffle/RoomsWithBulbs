@@ -17,7 +17,7 @@ function loadRoom() {
 }
 
 function connect() {
-    let socket = new SockJS("/rooms-with-bulbs");
+    let socket = new SockJS(`/rooms-with-bulbs`);
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
 
@@ -32,7 +32,7 @@ function connect() {
             /* End of debug section */
 
             updateRoom(JSON.parse(data.body));
-        }, function () {});
+        });
     });
 }
 

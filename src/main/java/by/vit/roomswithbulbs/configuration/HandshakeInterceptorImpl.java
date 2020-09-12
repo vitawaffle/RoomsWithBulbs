@@ -23,7 +23,6 @@ public class HandshakeInterceptorImpl implements HandshakeInterceptor {
             final WebSocketHandler wsHandler,
             final Map<String,Object> attributes
     ) throws Exception {
-        attributes.put("ip", request.getRemoteAddress().getAddress().getHostAddress());
         return true;
     }
 

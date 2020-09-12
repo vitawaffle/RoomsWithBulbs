@@ -19,17 +19,19 @@ function loadRoom() {
 function connect() {
     let socket = new SockJS(`/rooms-with-bulbs`);
     stompClient = Stomp.over(socket);
-    stompClient.connect({}, function (frame) {
+    stompClient.connect({
+        id: id
+    }, function (frame) {
 
-        /* Start of debug section */
+        // Start of debug section
         console.log(`Connected: ${frame}`);
-        /* End of debug section */
+        // End of debug section
 
         stompClient.subscribe(`/topic/room/${id}`, function (data) {
 
-            /* Start of debug section */
+            // Start of debug section
             console.log(JSON.parse(data.body));
-            /* End of debug section */
+            // End of debug section
 
             updateRoom(JSON.parse(data.body));
         });
@@ -38,9 +40,9 @@ function connect() {
 
 function disconnect() {
 
-    /* Start of debug section */
+    // Start of debug section
     console.log("Disconnected");
-    /* End of debug section */
+    // End of debug section
 
     if (stompClient !== null) {
         stompClient.disconnect();

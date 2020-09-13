@@ -1,5 +1,6 @@
-package by.vit.roomswithbulbs.repository;
+package by.vit.roomswithbulbs.dao;
 
+import by.vit.roomswithbulbs.dao.JsonFileCountryDao;
 import by.vit.roomswithbulbs.entity.Country;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Provides access to countries in a json file.
+ * Json file country DAO implementation.
  *
  * @author Vitaly Lobatsevich
  */
@@ -45,7 +46,7 @@ public class JsonFileJsonFileCountryDaoImpl implements JsonFileCountryDao {
         if (countries == null) {
             try {
                 countries = Arrays.asList(mapper.readValue(jsonFile.getFile(), Country[].class));
-            } catch (IOException ignore) {
+            } catch (IOException exception) {
                 countries = Collections.emptyList();
             }
         }

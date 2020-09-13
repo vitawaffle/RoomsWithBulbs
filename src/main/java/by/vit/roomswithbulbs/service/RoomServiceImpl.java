@@ -15,13 +15,13 @@ import java.util.List;
 @Service
 public class RoomServiceImpl implements RoomService {
 
-    /** Room DAO. */
+    /** Room repository. */
     private final RoomRepository roomRepository;
 
     /**
      * Constructor.
      *
-     * @param roomRepository - room DAO.
+     * @param roomRepository - room repository.
      */
     @Autowired
     public RoomServiceImpl(final RoomRepository roomRepository) {

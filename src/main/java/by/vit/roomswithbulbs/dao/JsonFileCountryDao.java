@@ -1,4 +1,4 @@
-package by.vit.roomswithbulbs.repository;
+package by.vit.roomswithbulbs.dao;
 
 import by.vit.roomswithbulbs.entity.Country;
 
@@ -12,7 +12,9 @@ import java.util.List;
 public interface JsonFileCountryDao {
 
     /**
-     * @return list of all countries.
+     * Finds all countries.
+     *
+     * @return list of countries.
      */
     List<Country> findAll();
 

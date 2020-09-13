@@ -1,4 +1,4 @@
-package by.vit.roomswithbulbs.configuration;
+package by.vit.roomswithbulbs.websocket.interceptor;
 
 import by.vit.roomswithbulbs.exception.AccessDeniedException;
 import by.vit.roomswithbulbs.exception.BadMessageHeaderException;

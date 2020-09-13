@@ -1,6 +1,6 @@
 package by.vit.roomswithbulbs.configuration;
 
-import by.vit.roomswithbulbs.repository.JsonFileCountryDao;
+import by.vit.roomswithbulbs.dao.JsonFileCountryDao;
 import by.vit.roomswithbulbs.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

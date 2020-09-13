@@ -23,4 +23,9 @@ public class AccessDeniedException extends RuntimeException {
         super(errorMessage);
     }
 
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        return this;
+    }
+
 }

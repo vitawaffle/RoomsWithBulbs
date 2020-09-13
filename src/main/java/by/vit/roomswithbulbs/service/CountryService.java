@@ -5,7 +5,7 @@ import by.vit.roomswithbulbs.entity.Country;
 import java.util.List;
 
 /**
- * Country service interface
+ * Country service.
  *
  * @author Vitaly Lobatsevich
  */

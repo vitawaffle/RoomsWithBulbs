@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Provides access to room storage.
+ * Provides access to room MongoDB collection.
  *
  * @author Vitaly Lobatsevich
  */

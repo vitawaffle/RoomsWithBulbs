@@ -3,7 +3,7 @@ package by.vit.roomswithbulbs.entity;
 import org.springframework.data.annotation.Id;
 
 /**
- * Parent class for all application entities.
+ * Parent class for application entities.
  *
  * @author Vitaly Lobatsevich
  */

@@ -1,6 +1,6 @@
 package by.vit.roomswithbulbs;
 
-import by.vit.roomswithbulbs.repository.JsonFileCountryDao;
+import by.vit.roomswithbulbs.dao.JsonFileCountryDao;
 import by.vit.roomswithbulbs.repository.RoomRepository;
 import by.vit.roomswithbulbs.entity.Room;
 import by.vit.roomswithbulbs.service.RoomService;

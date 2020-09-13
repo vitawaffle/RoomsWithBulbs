@@ -1,4 +1,4 @@
-package by.vit.roomswithbulbs.configuration;
+package by.vit.roomswithbulbs.websocket.interceptor;
 
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
@@ -34,7 +34,6 @@ public class HandshakeInterceptorImpl implements HandshakeInterceptor {
             final WebSocketHandler webSocketHandler,
             final Exception e
     ) {
-
     }
 
 }

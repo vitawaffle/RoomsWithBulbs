@@ -23,4 +23,9 @@ public class BadMessageHeaderException extends RuntimeException {
         super(errorMessage);
     }
 
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        return this;
+    }
+
 }

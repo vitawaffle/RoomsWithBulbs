@@ -52,10 +52,16 @@ public class IpStackClientLocation implements LocationService {
         return countryCode != null ? countryCode.country_code : null;
     }
 
+    /**
+     * Class for parsing JSON.
+     */
     private static class CountryName {
         public String country_name;
     }
 
+    /**
+     * Class for parsing JSON.
+     */
     private static class CountryCode {
         public String country_code;
     }

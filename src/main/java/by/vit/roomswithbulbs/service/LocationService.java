@@ -8,7 +8,7 @@ package by.vit.roomswithbulbs.service;
 public interface LocationService {
 
     /**
-     * Returns country by client ip.
+     * Returns country name by client ip.
      *
      * @param ip - client ip.
      * @return country name for this ip.

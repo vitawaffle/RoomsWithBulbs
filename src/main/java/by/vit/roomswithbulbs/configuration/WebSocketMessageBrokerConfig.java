@@ -1,6 +1,8 @@
 package by.vit.roomswithbulbs.configuration;
 
 import by.vit.roomswithbulbs.service.AccessService;
+import by.vit.roomswithbulbs.websocket.interceptor.ChannelInterceptorImpl;
+import by.vit.roomswithbulbs.websocket.interceptor.HandshakeInterceptorImpl;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -15,7 +17,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
  */
 @Configuration
 @EnableWebSocketMessageBroker
-public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+public class WebSocketMessageBrokerConfig implements WebSocketMessageBrokerConfigurer {
 
     /** Access service. */
     private final AccessService accessService;
@@ -25,7 +27,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
      *
      * @param accessService - access service.
      */
-    public WebSocketConfig(final AccessService accessService) {
+    public WebSocketMessageBrokerConfig(final AccessService accessService) {
         this.accessService = accessService;
     }
 

@@ -1,6 +1,6 @@
 package by.vit.roomswithbulbs;
 
-import by.vit.roomswithbulbs.repository.JsonFileCountryDao;
+import by.vit.roomswithbulbs.dao.JsonFileCountryDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

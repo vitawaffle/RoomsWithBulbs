@@ -37,9 +37,9 @@ public class AppConfig {
      */
     @Bean
     public void initializeDefaultCountries() {
-        /*if (countryRepository.findAll().isEmpty()) {
+        if (countryRepository.findAll().isEmpty()) {
             jsonFileCountryDao.findAll().forEach(countryRepository::save);
-        }*/
+        }
     }
 
 }
